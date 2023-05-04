@@ -20,11 +20,33 @@ const userSchema = new Schema(
                 message: "Please enter a valid email",
             },
         },
-        thoghts: {}
+        thoughts: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User',
+            },
+        ],
+    },
+    {
+        friends: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User',
+            },
+        ],
+    },
+    {
+        toJson: {
+            virutals: true,
+        },
+        id: false,
     }
     
-)
+);
+userSchema.virtual('friendCount').get(function () {
+    return this.friends.length;
+})
 
-const User = mongoose.model('User', userSchema);
+const User = model('User', userSchema);
 
 module.exports = User
