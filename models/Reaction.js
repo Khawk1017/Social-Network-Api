@@ -33,6 +33,6 @@ reactionSchema.virtual('formattedCreatedAt').get(function () {
     return this.createdAt.toLocaleDateString()
 });
 
+const Reaction = model('Reaction', reactionSchema)
 
-
-module.exports = reactionSchema;
+module.exports = Reaction;
