@@ -18,8 +18,10 @@ const reactionSchema = new Schema(
         },
         createdAt: {
             type: Date,
+            required: true,
+            unique: true,
+            match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
             default: Date.now,
-            get: (createdAtVal) => dateFormat(createdAtVal)
         },
     },
     {
