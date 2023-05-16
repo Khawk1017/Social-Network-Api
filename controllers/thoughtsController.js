@@ -40,18 +40,19 @@ module.exports = {
     // Delete a thought
     async deleteThought(req, res) {
         try {
-            const thought = await Thought.findOneAndDelete({_id: req.params.thoughtId});
-
-            if(!thought) {
-                res.status(404).json({ message:' No thought with that ID'})
+            const thought = await Thought.findOneAndDelete({ _id: req.params.thoughtId });
+    
+            if (!thought) {
+                return res.status(404).json({ message: 'No thought with that ID' });
             }
-
-            await User.deleteMany({_id: {$in: thought.users}});
-            res.json({ message: 'Thought and users deleted!'}); 
+    
+            await User.deleteMany({ _id: { $in: thought.users } });
+            res.json({ message: 'Thought and users deleted!' });
         } catch (err) {
-            res.status(500).json(err);
+            return res.status(500).json(err);
         }
     },
+    
     // Update a thought 
     async updateThought(req, res) {
         try {
