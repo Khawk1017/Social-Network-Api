@@ -2,6 +2,8 @@
 
 This is a backend API for a social network application. It provides various endpoints to manage thoughts, users, reactions, and friendships. The API is built using Express.js, Mongoose, and MongoDB.
 
+
+
 ## Table of Contents
 
 - [Installation](#installation)
@@ -52,6 +54,9 @@ The following endpoints are available:
 - GET /api/reactions/:reactionId: Get a single reaction by ID.
 - PUT /api/reactions/:reactionId: Update a reaction by ID.
 - DELETE /api/reactions/:reactionId: Delete a reaction by ID.
+
+## Demo 
+[socialNet.webm](https://github.com/Khawk1017/Social-Network-Api/assets/120533670/25eee226-c878-4dc4-a3da-6e34181615f0)
  
  ## License
 This project is licensed under the [MIT](https://opensource.org/licenses/MIT) license.
